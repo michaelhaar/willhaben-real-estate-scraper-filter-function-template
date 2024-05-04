@@ -11,7 +11,10 @@
     "test:run": "vitest run"
   },
   "devDependencies": {
+    "@types/node": "^20.12.8",
     "@vitest/ui": "latest",
+    "isolated-vm": "^4.7.2",
+    "typescript": "^5.4.5",
     "vite": "latest",
     "vitest": "latest"
   },
