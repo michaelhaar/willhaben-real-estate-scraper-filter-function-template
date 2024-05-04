@@ -4,14 +4,13 @@
 import ivm from "isolated-vm";
 import type { RealEstateListing } from "real-estate-listing-schema";
 import ts from "typescript";
-import fs from "fs";
 
 export class FilterFunctionVm {
   isolate: ivm.Isolate;
   context: ivm.Context;
   jail: ivm.Reference;
 
-  constructor() {
+  constructor(filterFunction: string) {
     this.isolate = new ivm.Isolate({ memoryLimit: 128 });
     this.context = this.isolate.createContextSync();
 
@@ -25,11 +24,14 @@ export class FilterFunctionVm {
     });
     this.context.evalSync(`const console = { log: log };`);
 
-    const filterFunction = fs.readFileSync("./src/filter-function.ts").toString();
-    console.log(filterFunction);
     let sanitizedFilterFunction = filterFunction.replace(/import .+ from '.+';/g, "");
     sanitizedFilterFunction = sanitizedFilterFunction.replace(/export /g, "");
     sanitizedFilterFunction = ts.transpile(sanitizedFilterFunction);
+    sanitizedFilterFunction = sanitizedFilterFunction.replace(
+      'Object.defineProperty(exports, "__esModule", { value: true });',
+      "",
+    );
+
     this._createFilterFunctionInVm(sanitizedFilterFunction);
   }
 

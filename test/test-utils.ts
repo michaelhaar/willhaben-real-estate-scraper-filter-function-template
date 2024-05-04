@@ -2,13 +2,15 @@ import type { RealEstateListing } from "real-estate-listing-schema";
 import { generateRealEstateListingData } from "./test-data-factory.js";
 import { expect } from "vitest";
 import { FilterFunctionVm } from "./filter-function-vm.js";
+import fs from "fs";
 
-const filterFunctionVm = new FilterFunctionVm();
+const filterFunctionStr = fs.readFileSync("./src/filter-function.ts").toString();
+const filterFunctionVm = new FilterFunctionVm(filterFunctionStr);
 
 export function expectFilterFunctionToReturn(expectedResult: boolean, overrides?: DeepPartial<RealEstateListing>) {
   const realEstateListing = generateRealEstateListingData(overrides);
 
-  const result = filterFunctionVm.runFilterFunction(realEstateListing);
+  const result = filterFunctionVm?.runFilterFunction(realEstateListing);
 
   expect(result).toBe(expectedResult);
 }
