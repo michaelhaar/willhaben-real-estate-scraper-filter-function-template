@@ -1,0 +1,27 @@
+{
+  "name": "willhaben-real-estate-scraper-filter-function-template",
+  "type": "module",
+  "private": true,
+  "license": "MIT",
+  "main": "src/filter-function.ts",
+  "scripts": {
+    "start": "vitest",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:run": "vitest run"
+  },
+  "devDependencies": {
+    "@vitest/ui": "latest",
+    "vite": "latest",
+    "vitest": "latest"
+  },
+  "stackblitz": {
+    "startCommand": "npm run test:ui"
+  },
+  "dependencies": {
+    "real-estate-listing-schema": "^2.2.0"
+  },
+  "prettier": {
+    "printWidth": 120
+  }
+}
