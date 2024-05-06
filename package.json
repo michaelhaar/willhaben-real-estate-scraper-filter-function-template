@@ -5,12 +5,13 @@
   "main": "src/filter-function.ts",
   "scripts": {
     "start": "vitest",
-    "test": "vitest"
+    "test": "vitest",
+    "typescript:check": "tsc --noEmit"
   },
   "devDependencies": {
     "@types/node": "^20.12.8",
     "isolated-vm": "^4.7.2",
-    "real-estate-listing-schema": "^2.2.0",
+    "real-estate-listing-schema": "^2.3.0",
     "typescript": "^5.4.5",
     "vitest": "^1.6.0"
   }

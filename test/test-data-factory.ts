@@ -2,7 +2,9 @@ import { type RealEstateListing } from "real-estate-listing-schema";
 import type { DeepPartial } from "./test-utils.js";
 import { merge } from "./test-utils.js";
 
-export function generateRealEstateListingData(overrides?: DeepPartial<RealEstateListing>): RealEstateListing {
+export function generateRealEstateListingData(
+  overrides?: DeepPartial<RealEstateListing>,
+): RealEstateListing {
   const fakeRealEstateListing = {
     listingId: "12345",
     url: "https://www.willhaben.at/iad/immobilien/d/grundstuecke/steiermark/deutschlandsberg/lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit-12345",
@@ -25,7 +27,9 @@ export function generateRealEstateListingData(overrides?: DeepPartial<RealEstate
     coordinates: { latitude: 46.870266, longitude: 15.217262 },
     monetaryDetails: {
       purchasingPrice: 98500,
+      previousPurchasingPrice: null,
       rent: null,
+      previousRent: null,
       currencyCode: "EUR",
       isCommissionFree: false,
       estMonthlyOperatingCosts: null,
@@ -59,5 +63,7 @@ export function generateRealEstateListingData(overrides?: DeepPartial<RealEstate
     updatedAt: "2024-04-24T16:00:00+0200",
   } satisfies RealEstateListing;
 
-  return overrides ? merge(fakeRealEstateListing, overrides) : fakeRealEstateListing;
+  return overrides
+    ? merge(fakeRealEstateListing, overrides)
+    : fakeRealEstateListing;
 }
