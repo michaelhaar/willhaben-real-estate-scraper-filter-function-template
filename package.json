@@ -11,7 +11,7 @@
   "devDependencies": {
     "@types/node": "^20.12.8",
     "isolated-vm": "^4.7.2",
-    "real-estate-listing-schema": "^2.3.0",
+    "real-estate-listing-schema": "^2.4.0",
     "typescript": "^5.4.5",
     "vitest": "^1.6.0"
   }

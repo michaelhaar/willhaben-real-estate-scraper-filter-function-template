@@ -28,8 +28,10 @@ export function generateRealEstateListingData(
     monetaryDetails: {
       purchasingPrice: 98500,
       previousPurchasingPrice: null,
+      purchasingPricePerM2: 83.19,
       rent: null,
       previousRent: null,
+      rentPerM2: null,
       currencyCode: "EUR",
       isCommissionFree: false,
       estMonthlyOperatingCosts: null,
